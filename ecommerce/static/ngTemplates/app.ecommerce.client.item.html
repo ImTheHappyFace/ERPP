@@ -1,0 +1,68 @@
+<style>
+  .fa-lg:hover{
+    font-size: 25px;
+    color: #005173;
+  }
+
+</style>
+
+
+
+
+
+<div class="col-md-3" style="padding-bottom:20px;padding-left:10px;padding-right:10px;" ng-controller="businessManagement.ecommerce.client.item">
+
+    <div class="container-fluid card" style="padding-bottom:10px;" ng-if = "data.name != null">
+      <div class="row" style="border-bottom: 1px solid #dedede;">
+      
+        <div class="col-md-8" style="position:relative;display:block;height: 70px;">
+          <div class="row" style="padding-left:10px;">
+            <h3 style="padding-left: 10px;">Name:{{data.name}}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row container-fluid" style="padding-top:20px;height:90px;">
+        <div class="col-md-9">
+          <span ng-if="data.title != null" style="font-size: 17px;"><strong>Title:</strong> </strong>{{data.title}}</span><br>
+          <span ng-if="data.details != null"><strong> Details:</strong>{{data.details}}</span>
+  
+          <span ng-if="data.details == null && data.title == null" class="text-muted">Details not available yet</span>
+        </div>
+        <!-- <i style="position:absolute;bottom:20px;right:80px;color:#fafafa;" class="fa fa-handshake-o fa-5x"></i> -->
+        <div class = "col-md-3">
+            <div class="row" >
+             <div class="col-md-6" style="padding-bottom: 8px;">
+                <span class="pull-right" style="cursor:pointer;" ng-click = "rowActionClicked('edit')" >
+                  <i class="fa fa-pencil fa-lg" ></i>
+                </span>
+             </div>
+           
+              <div class="col-md-6" style="padding-bottom: 8px;">
+                <span class="pull-right" style="cursor:pointer;" ng-click = "deleeCard()" >
+                  <i class="fa fa-download fa-lg" ></i>
+                </span> 
+              </div>
+            </div>
+            
+            
+                <div class="row">
+                  <div class="col-md-6">
+                    <span class="pull-right" style="cursor:pointer;" ng-click = "rowActionClicked('details')">
+                      <i class="fa fa-info-circle fa-lg" ></i>
+                    </span> 
+                  </div>
+                  <div class="col-md-6">
+                    <span class="pull-right" style="cursor:pointer;" ng-click = "deleteCard()">
+                      <i class="fa fa-trash fa-lg" ></i>
+                    </span> 
+                  </div>
+                </div>
+             
+              
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  

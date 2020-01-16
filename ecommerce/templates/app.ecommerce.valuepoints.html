@@ -1,0 +1,123 @@
+{% load staticfiles%}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html ng-app="value" ng-controller="myctrl">
+
+<head>
+    <meta charset="utf-8">
+    <title>Charts</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/app.HR.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="/static/css/app.ecommerce.valuep.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" charset="utf-8">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="rowVoilet">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-7 mainIcons">
+                    <span style="border-right: 1px solid white;padding-right: 7px;">GLOBAL</span>
+                    <span>INDIA</span>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+                <div class="col-md-2">
+
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height: 160px;  margin-top: -2px;">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3" style="padding-top: 20px;;">
+                        <img style="padding-left: 15px;" src="/static/images/logo1.png" alt="">
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="navList" ng-repeat="names in data.navList">
+                            <span id="dot"></span>
+                            <li ng-bind="names.name" class="listItems"></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="searchIcon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mainBubble" style="height: 785px;">
+            <div class="col-md-12 bubble">
+                <div class="row ">
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-8">
+                        <div class="mainBackImg">
+                            <span class="btn-Heading">Digital Transformation Catalyst for Buisness Acceleration</span> 
+                            <button class="btn btn-primary">Learn More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="row" style="padding-top: 50px;height: 600px;">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="mainHeading"> Services </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3" style="padding: 30px;" ng-repeat = "cd in data.cards">
+                        <div class="cards"  >
+                           <div style="text-align: center;">
+                            <i class="ng-class:cd.icon" aria-hidden="true" style="padding-top: 40px;font-size: 59px;color:rgb(85, 128, 255);"></i> <br>
+                            <span style="font-size: 22px;color: #58468c;font-weight: 300;" ng-bind = "cd.heading "></span>
+                           </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="{% static 'js/angular.min.js' %}"></script>
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="/static/js/app.ecommerce.valuep.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/0.10.2/angular-chart.js"></script>
+</body>
+
+</html>

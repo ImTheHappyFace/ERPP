@@ -1,0 +1,132 @@
+
+<style>
+.menu {
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  width: 20px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.menu > li > a {
+  color: rgb(14, 13, 13);
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.menu ul {
+  height: 0;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  transition: all .5s ease-out;
+  top: 10px;
+  width: 100%;
+  list-style: none;
+}
+
+
+
+.fa-lg{
+  font-size: 21px;
+}
+
+.fa-lg:hover{
+  color: #005173cc;
+  font-size: 30px;
+}
+
+
+</style>
+
+
+<div class="col-md-3" style="padding-bottom:20px;padding-left:10px;padding-right:10px;" ng-controller="businessManagement.ecommerce.todo.item">
+<div style="padding: 10px;height: 200px;box-shadow: 1px 2px 10px #00000030;" ng-click = "cardClick()">
+  <div class="row">
+    <div class="col-md-9">
+<span style="font-size: 18px;">Title : <b>{{ data.title }}</b></span>
+    </div>
+    <div class="col-md-3" style="display: flex;justify-content: flex-end;">
+      <ul class="menu">
+        <li>
+          <i class="fa fa-ellipsis-v" aria-hidden="true" style="font-size: 21px;" ng-click = "addMenu()"></i>
+
+
+          <ul ng-if = "count%2 !=0">
+            <li><span class="pull-right" style="cursor:pointer;" ng-click = "rowActionClicked('edit')">
+              <i class="fa fa-pencil fa-lg" style="margin-top:20px;"></i>
+            </span></li>
+            <li><span class="pull-right" style="cursor:pointer;" ng-click = "deleteCard()">
+              <i class="fa fa-trash fa-lg" style="margin-top:20px;"></i>
+            </span></li>
+            <li><span class="pull-right" style="cursor:pointer;" ng-click = "rowActionClicked('details')">
+              <i class="fa fa-info-circle fa-lg" style="margin-top:20px;"></i>
+            </span></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row" style="padding: 10px 0px;">
+    <div class="col-md-12">
+      <span style="font-size: 17px;">Name : <b>{{data.name}}</b></span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <span style="font-size: 17px;">Description: <b>{{data.details}}</b></span>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- <div class = "col-md-2">
+        <div style="padding-right:20px;">
+          <div class="row">
+            <span class="pull-right" style="cursor:pointer;" ng-click = "rowActionClicked('edit')">
+              <i class="fa fa-pencil fa-lg" style="margin-top:0px;"></i>
+            </span>
+          </div>
+          <div class="row">
+            <span class="pull-right" style="cursor:pointer;" ng-click = "rowActionClicked('details')">
+              <i class="fa fa-reorder fa-lg" style="margin-top:20px;"></i>
+            </span>
+          </div>
+        </div>
+      </div> -->

@@ -1,0 +1,193 @@
+{% load staticfiles%}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html ng-app = "charts" ng-controller = "myctrl">
+  <head>
+    <meta charset="utf-8">
+    <title>Charts</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/app.HR.css' %}" charset="utf-8">
+    <link rel="stylesheet" href="/static/css/app.ecommerce.chart.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" charset="utf-8">
+  </head>
+  <body >
+    <div class="container-fluid" style="background-color: rgba(128, 128, 128, 0.233);">
+        <div class="row" style="padding: 10px;">
+            <div class="col-md-6" style="height: 950px;padding: 0px 5px;margin-bottom: 10px;" >
+               <div class="div1-primary">
+                   <div>
+                    <h4>Orders</h4>
+                   </div>
+                   <div> 
+                    <span>Filter Order Status</span>
+                    <select >
+                      <option value="volvo" ng-repeat = "list in data.status" ng-bind = "list.name"></option> 
+                    </select>
+                   </div>
+                   <div class="table-main" style="padding-top: 10px;">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th style="width:30px"> </th>
+                          <th>Employee</th>
+                          <th>Order Status</th>
+                          <th>Order Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat = "x in data.tableData">
+                          <td> <div>
+                            <div class="rectangle"></div>
+                          </div> </td>
+                          <td ng-bind = "x.name"></td>
+                          <td ng-bind = "x.status"></td>
+                          <td ng-bind = "x.date"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                   </div>
+               </div>
+               <div class="div2-primary">
+                <h3 style="padding-left: 10px;">Global Financial Performance</h3>
+
+                <div class="row">
+                  <div class="col-md-1">
+
+                  </div>
+                  <div class="col-md-10">
+                    <div class="col-md-4 "  style="display: flex;">
+                      <div class="rectangle" style="margin-right: 5px;background-color: blue;"></div>
+                      <span>Cash to Cash Cylce Time</span>
+                  </div>
+                  <div class="col-md-4 "  style="display: flex;">
+                    <div class="rectangle" style="margin-right: 5px;background-color: green;"></div>
+                    <span>Average Remaining Days</span>
+                </div>
+                <div class="col-md-4 "  style="display: flex;">
+                  <div class="rectangle" style="margin-right: 5px;background-color: orange;"></div>
+                  <span>Unseen Date</span>
+              </div>
+              <div class="col-md-4 "  style="display: flex;">
+                <div class="rectangle" style="margin-right: 5px;"></div>
+                <span>Last</span>
+            </div>   
+                </div>
+               </div> 
+               
+               <div class="chart">
+                <canvas id="myChart" height="120px"></canvas>
+               </div>
+            </div>
+          </div>
+
+          <!-- 2nd Section -->
+
+            <div class="col-md-6" style="height: 950px;padding:0px 5px;">
+                <div class="div1-secondary" style="padding: 16px 10px;">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Orders To Ship </th>
+                        <th>Givenn Shipments</th>
+                        <th>Open PQ's</th>
+                        <th>Late Vendor Shipments</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat = "x in data.tableData2">
+                        <td ng-bind= "x.ship"> </td>
+                        <td ng-bind= "x.shipments"> </td>
+                        <td ng-bind = "x.PQ">john@example.com</td>
+                        <td ng-bind = "x.LateShip">dawdawkjdw</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="div2-secondary">
+                    <h3 >Inventory</h3>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Categories </th>
+                          <th>Product</th>
+                          <th>SKILL</th>
+                          <th>In Stock</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat = "x in data.inventory">
+                          <td ng-bind= "x.category"> </td>
+                          <td ng-bind= "x.product"> </td>
+                          <td ng-bind = "x.ship"></td>
+                          <td ng-bind = "x.inStock"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div class="row"></div>
+                    <div class="col-md-2">
+
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                      <canvas id="pie" class="chart chart-pie" chart-data="rowData" chart-labels="labels" height="200px" ></canvas>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                      <ul style="list-style: none;position: relative;top: 50px;">
+                        <li style="display: flex;"><div class="rectangle2" style="margin-right: 10px;"></div> <span>Appliance(123)</span></li>
+                       <li style="display: flex;"><div class="rectangle2" style="margin-right: 10px;background: blue;"></div> <span>Computer(789)</span></li>
+                       <li style="display: flex;"><div class="rectangle2" style="margin-right: 10px;background: orange;"></div> <span>Automatic(456)</span></li>
+                       <li style="display: flex;"><div class="rectangle2" style="margin-right: 10px;background: green;"></div> <span>Electronics(556)</span></li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="div3-secondary">
+                  <h3 >KPIs - Monthly</h3>
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th style="width:30px"> </th>
+                        <th>Market</th>
+                        <th>This Month</th>
+                        <th>Past Month</th>
+                        <th>Change</th>
+                        <th>Past 10 Days</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat = "x in data.kpi" style="background-color: transparent;"> 
+                        <td> <div>
+                        <div ng-if = "$index == 0" class="arrow-up"></div>
+                        <div ng-if = "$index == 1" class="arrow-down"></div>
+                        <div ng-if = "$index == 2" class="rectangle3"></div>
+                        <div ng-if = "$index == 3" class="rectangle3"></div>
+                        <div ng-if = "$index == 4" class="rectangle3"></div>
+                        </div>
+                       </td>
+                        <td ng-bind = "x.market"></td>
+                        <td ng-bind = "x.monthcurrent"></td>
+                        <td ng-bind = "x.monthPast"></td>
+                        <td ng-bind = "x.change"></td>
+                        <td>
+                        </td>
+                       
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/angular.min.js' %}"></script>
+    <script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="/static/js/app.ecommerce.charts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/0.10.2/angular-chart.js"></script>
+  </body>
+</html>
+
